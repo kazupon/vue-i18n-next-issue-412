@@ -1,15 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <form>
+    <input type="checkbox" v-model="toggle" />
+  </form>
+  <HelloI18n v-if="toggle" />
+  <template v-else>
+    <NoneI18n />
+    <OtherI18n />
+  </template>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloI18n from './components/HelloI18n.vue'
+import NoneI18n from './components/NoneI18n.vue'
+import OtherI18n from './components/OtherI18n.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloI18n,
+    NoneI18n,
+    OtherI18n
+  },
+  data() {
+    return {
+      toggle: true
+    }
   }
 }
 </script>
